@@ -153,6 +153,12 @@ angular.module('starter', ['ionic'])
             {
                 currentQuestIndex++;
                 window.localStorage.setItem("currentQuestIndex", currentQuestIndex);
+                if (currentQuestIndex < questStorage.length) // Make sure this wasn't the last quest.
+                {
+                    var media = new Media("/android_asset/www/sound/quest-complete.wav", function() { console.log(this); });
+                    media.play();
+                    navigator.vibrate(1000);
+                }
             }
 
             updateQuests();
@@ -161,6 +167,13 @@ angular.module('starter', ['ionic'])
         else
         {
             $("#vegalengd").text("Lokið");
+            if (window.localStorage.getItem("campaignComplete") == null)
+            {
+                window.localStorage.setItem("campaignComplete", "true");
+                var media = new Media("/android_asset/www/sound/campaign-complete.flac", function() { this.release(); });
+                media.play();
+                navigator.vibrate(5000);
+            }
         }
     }
 
@@ -181,7 +194,7 @@ angular.module('starter', ['ionic'])
 
     $("#hintButton").click(function()
     {
-        if (currentQuestIndex < questStorage.length)
+         if (currentQuestIndex < questStorage.length)
         {
             if (hintsGiven.indexOf(currentQuestIndex) < 0)
             {

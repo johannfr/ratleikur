@@ -1,0 +1,14 @@
+[
+    {
+        "lat" : 64.141630, 
+        "lon" : -21.966584,
+        "radius" : 42,
+        "description" : "<img class='full-image' src='img/brenna.jpg' /> Hérna er oft haldin áramótabrenna"
+    },
+    {
+        "lat" : 64.321,
+        "lon" : -21.321,
+        "radius" : 16,
+        "description" : "<img class='full-image' src='img/hus.jpg' /> Hérna býr örugglega enginn"
+    }
+]

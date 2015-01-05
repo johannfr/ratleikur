@@ -40,56 +40,131 @@ angular.module('starter', ['ionic'])
         return R * c;
     }
 
-
     var questStorage = null;
+
     var currentQuestIndex = 0;
+    var hintNumber = 5;
+    var hintsGiven = [];
 
+    if (window.localStorage.getItem("currentQuestIndex") == null)
+    {
+        window.localStorage.setItem("currentQuestIndex", currentQuestIndex);
+        window.localStorage.setItem("hintsGiven", []);
+    }
+    else
+    {
+        currentQuestIndex = parseInt(window.localStorage.getItem("currentQuestIndex"), 10);
+        if (window.localStorage.getItem("hintsGiven").length > 0)
+        {
+            hintsGiven = $.map($(window.localStorage.getItem("hintsGiven").split(',')), function(value){
+                return parseInt(value, 10);
+            });
+        }
+    }
 
-    $.getJSON("quests.json", null).done(function(quests)
+    // Load all the quests from a local JSON file.
+    $.ajax({ dataType: "json", url: "quests.json", async: false }).done(function(quests)
     {
         questStorage = quests;
-        console.log(questStorage);
         $.each(quests, function(i, quest)
         {
-            console.log(quest.lat);
-
             $("#questContainer").append('\
                 <div id="questCard' + i + '" class="card quest" style="display: none;">\
                 <div class="item item-divider">\
                     Þraut #' + (i+1)  + '\
                 </div>\
-                <div class="item item-text-wrap">\
-                ' + quest.description + '\
+                <div class="item item-text-wrap questDescription">\
+                <div>' + quest.description + '</div>\
+                <div class="questHint" style="display:none;"><b>Vísbending:</b> ' + quest.hint + '</div>\
                 </div>\
-                <div class="item item-divider assertive">\
+                <div class="item item-divider assertive questStatus">\
                     Þraut ólokið\
                 </div>\
                 </div>');
 
 
         });
-
-        $("#questCard" + currentQuestIndex).show();
-
     }).fail(function(e) { console.log("JSON error") });
 
+    // Go through all of the loaded quests and update their status
+    // according to our local-storage
+    // This is a bit ugly .. relying on global variables, etc.
+    var updateQuests = function()
+    {
+        $.each(questStorage, function(i, quest)
+        {
+            var questCard = $("#questCard" + i);
+            var questDescription = $("#questCard" + i + " .questDescription:first");
+            var questStatus = $("#questCard" + i + " .questStatus:first");
+            var questHint = $("#questCard" + i + " .questHint:first");
+
+            if (i < currentQuestIndex)
+            {
+                questStatus.html("Þraut lokið").removeClass("assertive").addClass("balanced");
+                questDescription.hide();
+                questCard.show();
+            }
+            else if (i == currentQuestIndex)
+            {
+                questCard.show();
+            }
+
+            if (hintsGiven.indexOf(i) >= 0)
+            {
+                questHint.show();
+            }
+
+        });
+
+        $("#hintCounter").text(""+(hintNumber-hintsGiven.length));
+    }
+
+
+    updateQuests();
 
 
 
+    // We have a new position
     var locationSuccess = function(position)
     {
-        var distance = getDistance(position.coords.latitude, position.coords.longitude, 64.141630, -21.966584);
-        console.log(currentQuestIndex++);
-        if (distance > 1.0)
+        if (currentQuestIndex < questStorage.length)
         {
-            $("#vegalengd").text(distance.toPrecision(3) + " km");
+
+            var questLat = questStorage[currentQuestIndex].lat;
+            var questLon = questStorage[currentQuestIndex].lon;
+            var questRadius = questStorage[currentQuestIndex].radius;
+            var distance = getDistance(
+                position.coords.latitude,
+                position.coords.longitude,
+                questLat,
+                questLon
+            );
+
+            if (distance > 1.0)
+            {
+                $("#vegalengd").text(distance.toPrecision(3) + " km");
+            }
+            else
+            {
+                $("#vegalengd").text((distance*1000).toPrecision(3) + " m");
+            }
+
+            if (distance*1000.0 <= questRadius)
+            {
+                currentQuestIndex++;
+                window.localStorage.setItem("currentQuestIndex", currentQuestIndex);
+            }
+
+            updateQuests();
+
         }
         else
         {
-            $("#vegalengd").text((distance*1000).toPrecision(3) + " m");
+            $("#vegalengd").text("Lokið");
         }
     }
 
+    // Failed getting a new position (i.e. a timeout)
     var locationError = function(error)
     {
         console.log('code: '    + error.code    + '\n' +
@@ -104,43 +179,15 @@ angular.module('starter', ['ionic'])
             timeout: 30000 
         });
 
-    /* var bgGeo = window.plugins.backgroundGeoLocation;
-
-    var ajaxCallback = function(response)
+    $("#hintButton").click(function()
     {
-        bgGeo.finish();
-    }
-
-    var locationCallback = function(location)
-    {
-        console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-
-        ajaxCallback.call(this);
-    }
-
-    var locationFailure = function(error)
-    {
-        console.log("BackgroundGeoLocation error");
-    }
-
-    bgGeo.configure(locationCallback, locationFailure, {
-        url: 'http://jof.guru:8005/setBackgroundLocation',
-        params: {
-            auth_token: "fooauthtoken",
-            foo: "bar"
-        },
-        desiredAccuracy: 10,
-        stationaryRadius: 20,
-        distanceFilter: 30,
-        notificationTitle: "Ratleikur",
-        notifcationText: "Virkur",
-        activityType: 'AutomotiveNavigation',
-        debug: false,
-        stopOnTerminate: false
+        if (hintsGiven.indexOf(currentQuestIndex) < 0)
+        {
+            hintsGiven.push(currentQuestIndex);
+            window.localStorage.setItem("hintsGiven", hintsGiven);
+        }
+        updateQuests();
     });
-
-    bgGeo.start();
-    */
 
   });
 

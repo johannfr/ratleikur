@@ -181,12 +181,15 @@ angular.module('starter', ['ionic'])
 
     $("#hintButton").click(function()
     {
-        if (hintsGiven.indexOf(currentQuestIndex) < 0)
+        if (currentQuestIndex < questStorage.length)
         {
-            hintsGiven.push(currentQuestIndex);
-            window.localStorage.setItem("hintsGiven", hintsGiven);
+            if (hintsGiven.indexOf(currentQuestIndex) < 0)
+            {
+                hintsGiven.push(currentQuestIndex);
+                window.localStorage.setItem("hintsGiven", hintsGiven);
+            }
+            updateQuests();
         }
-        updateQuests();
     });
 
   });

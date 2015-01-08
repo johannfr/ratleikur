@@ -1,16 +1,121 @@
 [
     {
-        "lat" : 64.141630, 
-        "lon" : -21.966584,
-        "radius" : 42,
-        "description" : "<img class='full-image' src='img/brenna.jpg' /> Hérna er oft haldin áramótabrenna",
-        "hint" : "Einhverskonar vísbending.."
+        "lat" : 64.144194, 
+        "lon" : -21.955254,
+        "radius" : 15,
+        "description" : "<img class='full-image' src='img/reynimelur.png' />Kannist þið við þennan inngang? Farið þangað.",
+        "hint" : "Fyrsta heimilið ykkar saman á Íslandi"
     },
     {
-        "lat" : 64.138413,
-        "lon" : -21.963735,
-        "radius" : 16,
-        "description" : "<img class='full-image' src='img/hus.jpg' /> Hérna býr örugglega enginn",
-        "hint" : "Meiri vísbending.."
+        "lat" : 64.141959,
+        "lon" : -21.926985,
+        "radius" : 70,
+        "description" : "<img class='full-image' src='img/hallgrimskirkja.jpg' /> Hinn gullni meðalvegur, hvar var hann?",
+        "hint" : "Hvar gengið þið í hjónaband?"
+    },
+    {
+        "lat" : 64.130528, 
+        "lon" : -21.905747,
+        "radius" : 70,
+        "description" : "<img class='full-image' src='img/mh.png' /> Hvaða stofnun hefur þetta logo?",
+        "hint" : "Hvar genguð þið í Menntó?"
+    },
+    {
+        "lat" : 64.131042, 
+        "lon" : -21.895062,
+        "radius" : 300,
+        "description" : "Hvar er Anna Kara?",
+        "hint" : "Var hún ekki að vinna?"
+    },
+    {
+        "lat" : 64.125729,
+        "lon" : -21.836606,
+        "radius" : 20,
+        "description" : "<img class='full-image' src='img/steypustodin.jpg' />Hvar er þetta skilti?",
+        "hint" : "Möl, möl og aftur möl. Á hausnum?"
+    },
+    {
+        "lat" : 64.160441,
+        "lon" : -21.667830,
+        "radius" : 15,
+        "description" : "<img class='full-image' src='img/grundarbaer.jpg' />\"Þið dragið hann svo upp í heila stöng aftur þegar við erum farin...\"",
+        "hint" : "<img class='full-image' src='img/grundarbaer-allt.jpg' />Hér var kafað í bækurnar fyrir prófatörn um árið"
+    },
+    {
+        "lat" : 64.209132,
+        "lon" : -21.715552,
+        "radius" : 15,
+        "description" : "<img class='full-image' src='img/esjan.jpg' />Hvar var þessi mynd tekin?",
+        "hint" : "Þetta var æfingarganga með Svans-hópnum"
+    },
+    {
+        "lat" : 64.266113,
+        "lon" : -21.833429,
+        "radius" : 30,
+        "description" : "Hvað er hann þungur?",
+        "hint" : "Hvar er hægt að vigta ökutæki?"
+    },
+    {
+        "lat" : 64.390235,
+        "lon" : -21.849015,
+        "radius" : 15,
+        "description" : "<img class='full-image' src='img/melasveit.jpg'>Hvar er þessi brú?",
+        "hint" : "Nýlega uppgert hótel í Melasveit"
+    },
+    {
+        "lat" : 64.4230384,
+        "lon" : -21.9466087,
+        "radius" : 100,
+        "description" : "Ekki keyra of hratt!",
+        "hint" : "Er Stóri Bróðir allsstaðar?"
+    },
+    {
+        "lat" : 64.535703,
+        "lon" : -21.923270,
+        "radius" : 100,
+        "description" : "<b>Nú megið þið gefa í!</b><br /><br /><img class='full-image' src='img/setur.png' />Hvaða stofnun hefur þetta logo?",
+        "hint" : "Þarna sáum við Skallagrímsson"
+    },
+    {
+        "lat" : 64.675005,
+        "lon" : -21.664588,
+        "radius" : 80,
+        "description" : "<img class='full-image' src='img/baula.jpg' />Hvað gerir Búkolla?",
+        "hint" : "Við erum samt ekki að tala um fjallið sem heitir þetta sama..."
+    },
+    {
+        "lat" : 64.618387,
+        "lon" : -21.790666,
+        "radius" : 150,
+        "description" : "<img class='full-image' src='img/afleggjari.jpg' />Hér eru holt og hæðir. Sum eru kennd við örnefni eða landslag.",
+        "hint" : "Ætli það séu margar Klappir eða Holt í Borgarfirði skreytt með blöðrum?"
+    },
+    {
+        "lat" : 64.620819,
+        "lon" : -21.792434,
+        "radius" : 15,
+        "description" : "Margt kvíslast fleira en ár",
+        "hint" : "\"Þar sem tveir vegir koma saman, þar eru vegamót.\"<br /><i>--Haft ranglega eftir Guðna Ágústssyni</i>"
+    },
+    {
+        "lat" : 64.621577,
+        "lon" : -21.791678,
+        "radius" : 15,
+        "description" : "Miðstig lýsingarorðs. Einnig skylt orðunum: þægilegur, auðveldur og rólegur.",
+        "hint" : "Stjórnmálastefna: Þeir ríku verða ríkari."
+    },
+    {
+        "lat" : 64.623667,
+        "lon" : -21.792730,
+        "radius" : 15,
+        "description" : "Varla þó heykvísl?",
+        "hint" : "Hvar er Guðni?"
+    },
+    {
+        "lat" : 64.6248833,
+        "lon" : -21.7982167,
+        "radius" : 30,
+        "description" : "Í skóginum stóð kofi einn, sat við gluggann...",
+        "hint" : "...jólasveinn? Hér? Í Borgarfirði??"
     }
 ]

@@ -43,7 +43,7 @@ angular.module('starter', ['ionic'])
     var questStorage = null;
 
     var currentQuestIndex = 0;
-    var hintNumber = 5;
+    var hintNumber = 17;
     var hintsGiven = [];
 
     if (window.localStorage.getItem("currentQuestIndex") == null)
@@ -69,13 +69,13 @@ angular.module('starter', ['ionic'])
         $.each(quests, function(i, quest)
         {
             $("#questContainer").append('\
-                <div id="questCard' + i + '" class="card quest" style="display: none;">\
+                <div id="questCard' + i + '" class="card quest" style="display: block;">\
                 <div class="item item-divider">\
                     Þraut #' + (i+1)  + '\
                 </div>\
                 <div class="item item-text-wrap questDescription">\
                 <div>' + quest.description + '</div>\
-                <div class="questHint" style="display:none;"><b>Vísbending:</b> ' + quest.hint + '</div>\
+                <div class="questHint" style="display:block;"><b>Vísbending:</b> ' + quest.hint + '</div>\
                 </div>\
                 <div class="item item-divider assertive questStatus">\
                     Þraut ólokið\
@@ -84,7 +84,7 @@ angular.module('starter', ['ionic'])
 
 
         });
-    }).fail(function(e) { console.log("JSON error") });
+    }).fail(function(e) { console.log("JSON error: "+ e) });
 
     // Go through all of the loaded quests and update their status
     // according to our local-storage

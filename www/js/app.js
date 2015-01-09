@@ -69,13 +69,13 @@ angular.module('starter', ['ionic'])
         $.each(quests, function(i, quest)
         {
             $("#questContainer").append('\
-                <div id="questCard' + i + '" class="card quest" style="display: block;">\
+                <div id="questCard' + i + '" class="card quest" style="display: none;">\
                 <div class="item item-divider">\
                     Þraut #' + (i+1)  + '\
                 </div>\
                 <div class="item item-text-wrap questDescription">\
                 <div>' + quest.description + '</div>\
-                <div class="questHint" style="display:block;"><b>Vísbending:</b> ' + quest.hint + '</div>\
+                <div class="questHint" style="display:none;"><b>Vísbending:</b> ' + quest.hint + '</div>\
                 </div>\
                 <div class="item item-divider assertive questStatus">\
                     Þraut ólokið\

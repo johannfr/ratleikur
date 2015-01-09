@@ -43,7 +43,7 @@ angular.module('starter', ['ionic'])
     var questStorage = null;
 
     var currentQuestIndex = 0;
-    var hintNumber = 5;
+    var hintNumber = 17;
     var hintsGiven = [];
 
     if (window.localStorage.getItem("currentQuestIndex") == null)
@@ -84,7 +84,7 @@ angular.module('starter', ['ionic'])
 
 
         });
-    }).fail(function(e) { console.log("JSON error") });
+    }).fail(function(e) { console.log("JSON error: "+ e) });
 
     // Go through all of the loaded quests and update their status
     // according to our local-storage

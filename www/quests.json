@@ -23,7 +23,7 @@
     {
         "lat" : 64.131042, 
         "lon" : -21.895062,
-        "radius" : 300,
+        "radius" : 150,
         "description" : "Hvar er Anna Kara?",
         "hint" : "Var hún ekki að vinna?"
     },
@@ -72,14 +72,14 @@
     {
         "lat" : 64.535703,
         "lon" : -21.923270,
-        "radius" : 100,
+        "radius" : 50,
         "description" : "<b>Nú megið þið gefa í!</b><br /><br /><img class='full-image' src='img/setur.png' />Hvaða stofnun hefur þetta logo?",
         "hint" : "Þarna sáum við Skallagrímsson"
     },
     {
         "lat" : 64.675005,
         "lon" : -21.664588,
-        "radius" : 80,
+        "radius" : 40,
         "description" : "<img class='full-image' src='img/baula.jpg' />Hvað gerir Búkolla?",
         "hint" : "Við erum samt ekki að tala um fjallið sem heitir þetta sama..."
     },

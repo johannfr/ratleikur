@@ -1,7 +1,7 @@
 ratleikur
 =========
 
-This is a very simple Android/iOS (not tested on iOS) app for basically making a simple geocaching quest.
+This is a very simple Android/iOS (not tested on iOS) app for basically making a simple geocaching quest and is written using Ionic. See Ionic website for installation instructions: http://ionicframework.com/
 
 To edit the quest, simply edit the www/quests.json
 
